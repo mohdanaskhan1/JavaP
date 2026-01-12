@@ -14,8 +14,5 @@ public class Launch {
         System.out.println(dateTime);
         LocalDate localDate = LocalDate.of(2003, 9, 15);
         System.out.println(localDate);
-
-
-
     }
 }

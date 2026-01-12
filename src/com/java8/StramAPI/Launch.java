@@ -16,10 +16,10 @@ public class Launch {
         aL.add(9);
         aL.add(0);
 
-//        Stream<Integer> stream = aL.stream();
-//        Stream<Integer> map = stream.map(t->t*5);
-//        Stream<Integer> sorted = map.sorted();
-//        Stream<Integer> filter = sorted.filter(t -> t % 2 == 0);
+//        Stream1<Integer> stream = aL.stream();
+//        Stream1<Integer> map = stream.map(t->t*5);
+//        Stream1<Integer> sorted = map.sorted();
+//        Stream1<Integer> filter = sorted.filter(t -> t % 2 == 0);
 //        Integer reduce = filter.reduce(0, (a, b) -> (a + b));
 //        System.out.println(reduce);
 
@@ -37,12 +37,12 @@ public class Launch {
 
 
 
-        //Stream Created
-//        Stream<Integer> stream = aL.stream();
-//        //Stream Consumed
+        //Stream1 Created
+//        Stream1<Integer> stream = aL.stream();
+//        //Stream1 Consumed
 //        //new stream created
-//        Stream<Integer> filter = stream.filter(n -> n % 2 == 0);
-//        Stream<Integer> map = filter.map(n -> n * 2);
+//        Stream1<Integer> filter = stream.filter(n -> n % 2 == 0);
+//        Stream1<Integer> map = filter.map(n -> n * 2);
 //
 //        map.forEach(System.out::println);
 
