@@ -2,29 +2,63 @@ package com.DSAHighFrequency;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Permutations {
     public static List<List<Integer>> permute(int[] nums) {
-        ArrayList<List<Integer>> lists = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            ArrayList<Integer> element = new ArrayList<>();
-            element.add(nums[i]);
-            for (int j = 0; j < nums.length; j++) {
-                if (!element.contains(nums[j])) {
-                    element.add(nums[j]);
-                    for (int k = 0; k < nums.length; k++) {
-                        if (!element.contains(nums[k])) {
-                            element.add(nums[k]);
-                            lists.add(element);
-                        }
+        //Recursion + Backtracking
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(nums, new ArrayList<>(),result);
+        Set<List<Integer>> collect = result.stream().collect(Collectors.toSet());
+        List<List<Integer>> list = collect.stream().toList();
+        return result;
 
-                    }
-                }
-            }
 
-        }
-        return lists;
+        //SwapCode
+//        List<List<Integer>> result = new ArrayList<>();
+//        backtrackS(nums, 0, result);
+//        return result;
+
     }
+
+        private static void backtrack(int[] nums, ArrayList<Integer> element, List<List<Integer>> result) {
+        if(element.size() == nums.length){
+            result.add(new ArrayList<>(element));
+            return;
+        }
+        for(int i=0; i<nums.length; i++){
+            if(element.contains(nums[i])) continue;
+            element.add(nums[i]);
+            backtrack(nums,element,result);
+            element.remove(element.size() - 1);
+        }
+    }
+//
+//    private static void backtrackS(int[] nums, int index, List<List<Integer>> result) {
+//        if (index == nums.length) {
+//            ArrayList<Integer> permutation = new ArrayList<>();
+//            for (int num : nums) permutation.add(num);
+//            result.add(permutation);
+//            return;
+//        }
+////        HashSet<Integer> used = new HashSet<>();
+//        for (int i = index; i < nums.length; i++) {
+////            if(used.contains(nums[i])) continue;
+////            used.add(nums[i]);
+//
+//            swap(nums, index, i);
+//            backtrackS(nums, index + 1, result);
+//            swap(nums, index, i);
+//        }
+//    }
+
+//    private static void swap(int[] nums, int i, int j) {
+//        int temp = nums[i];
+//        nums[i] = nums[j];
+//        nums[j] = temp;
+//    }
+
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
