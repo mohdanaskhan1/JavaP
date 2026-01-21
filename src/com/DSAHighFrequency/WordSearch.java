@@ -20,7 +20,8 @@ public class WordSearch {
         if (board[r][c] != word.charAt(index)) return false;
         char temp = board[r][c];
         board[r][c]='#';
-        boolean found = dfs(board, word, r+1, c, index+1) ||
+        boolean found =
+                dfs(board, word, r+1, c, index+1) ||
                 dfs(board, word, r-1, c, index+1) ||
                 dfs(board, word, r, c+1, index+1) ||
                 dfs(board,word,r, c-1, index+1);
@@ -36,6 +37,5 @@ public class WordSearch {
         };
         boolean exists = exist(board, "ABCCED");
         System.out.println(exists);
-
     }
 }

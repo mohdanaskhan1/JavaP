@@ -10,8 +10,6 @@ public class Permutations {
         //Recursion + Backtracking
         List<List<Integer>> result = new ArrayList<>();
         backtrack(nums, new ArrayList<>(),result);
-        Set<List<Integer>> collect = result.stream().collect(Collectors.toSet());
-        List<List<Integer>> list = collect.stream().toList();
         return result;
 
 
